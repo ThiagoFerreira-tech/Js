@@ -1,13 +1,27 @@
 // 1 -CRIE UMA FUNÇÃO QUE DADO DOIS VALORES ( PASSADOS COMO PARAMETRO) MOSTRE NO CONSOLE A SOMA, SUBTRAÇÃO, MULTIPLICAÇÃO E DIVISAO DESSES VALORES.
 
-function operacoesMatematicas(a, b) {
-    console.log(`Soma: ${a + b}`);
-    console.log(`Subtração: ${a - b}`);
-    console.log(`Multiplicação: ${a * b}`);
-    console.log(`Divisão: ${b !== 0 ? (a / b) : 'Não é possível dividir por zero'}`);
+function soma(x, y) {
+    return x + y
+}
+console.log(soma(2, 4))
+
+function soma2(x, y) {
+    return x * y
+}
+console.log(soma2(2, 4))
+
+function soma3(x, y) {
+    return x - y
 }
 
-operacoesMatematicas(10, 5)
+console.log(soma3(2, 4))
+
+function soma4(x, y){
+    return x % y
+}
+console.log(soma4(2, 4))
+
+
 
 //2 - Os triangulos podem ser classificados em 3 tipos quanto ao tamanho de seus lados.
 //Equilátero: Os tres lados sao iguais. Isosceles: Dois lados iguais. Escaleno: Todos os lados sao diferentes.
