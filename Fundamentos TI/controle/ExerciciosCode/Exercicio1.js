@@ -530,3 +530,144 @@ console.log(parametro(600, 2))
 console.log(parametro(700, 2))
 
 
+/*  21) Criar um programa para identificar o valor a ser pago por um plano de saúde dada a idade do conveniado 
+considerando que todos pagam R$ 100 mais um adicional conforme a seguinte tabela: 1) crianças com menos 
+de 10 anos pagam R$80; 2) conveniados com idade entre 10 e 30 anos pagam R$50; 3) conveniados com 
+idade acima de  30 e até 60 anos pagam R$ 95; e 4) conveniados acima de 60 anos pagam R$130*/
+
+function calcularPlanoDeSaude (idade) {
+    const valorBase = 100
+    let adicional = 0 ;
+
+    if (idade < 10) {
+        adicional = 80;
+    } else if ( idade >= 10 && idade <= 30) {
+        adicional = 50;
+    } else if (idade > 30 && idade <= 60) {
+        adicional = 95
+    } else if (idade > 60) {
+        adicional = 130
+    } else{
+        console.log("Idade Inválida.");
+        return;
+    }
+    const valorTotal = valorBase + adicional;
+    console.log(`Idade: ${idade} anos`);
+    console.log(`Valor a ser pago: R$ ${valorTotal.toFixed(2)}`)
+}
+calcularPlanoDeSaude(15)
+calcularPlanoDeSaude(29)
+calcularPlanoDeSaude(35)
+calcularPlanoDeSaude(150)
+
+
+/* EX 2:*/
+
+function calcularPreco (idade) {
+    if(idade < 10) {
+       return 180
+    } else if (idade < 30) {
+        return 150
+    } else if (idade < 60) {
+        return 195 
+    } else if (idade > 60) {
+        return  230
+    }
+}
+
+console.log(calcularPreco(8))
+
+
+
+ /* 22) Criar uma função para calcular o valor a ser pago de anuidade de uma associação. A função recebe como 
+parâmetro um inteiro que representa o mês (1 - janeiro, 2 - fevereiro…) que foi paga e o valor da anuidade. A 
+anuidade deve ser paga no mês de janeiro. Por mês, é cobrado 5% de juros (sob o regime de juros 
+compostos). O retorno deve ser o valor a ser pago para o respectivo mês escolhido. */
+
+
+function calcularMes (mes, valor) { 
+ 
+let nomeMes;
+switch (mes) {
+    case 1: nomeMes = 'Janeiro';
+    break
+    case 2: nomeMes = 'Fevereiro'
+    break
+    case 3: nomeMes = 'Março'
+    break
+    case 4: nomeMes = 'Abril'
+    break
+    case 5: nomeMes =  'Maio'
+    break
+    case 6: nomeMes = 'Junho'
+    break
+    case 7: nomeMes = 'Julho'
+    break
+    case 8: nomeMes = 'Agosto'
+    break
+    case 9: nomeMes = 'Setembro'
+    break
+    case 10: nomeMes = 'Outubro'
+    break
+    case 11: nomeMes = 'Novembro'
+    break
+    case 12: nomeMes = 'Dezembro'
+    default:
+        return 'Mes Invalido, Insira Um Numero De 1 ao 12';
+}
+
+const taxaJuros = 0.05;
+const MesesAtraso = mes - 1;
+const valorFinal =valor * Math.pow(1 + taxaJuros, MesesAtraso)
+return `Mes: ${nomeMes} (${mes})\nValor a ser pago: R$ ${valorFinal.toFixed(2)}`;
+
+}
+
+console.log(calcularMes(1, 1000))
+console.log(calcularMes(13, 1500))
+console.log(calcularMes(3, 1500))
+
+
+/* 23) Escreva um algoritmo que leia o código de um aluno e suas três notas. Calcule a média ponderada do 
+aluno, considerando que o peso para a maior nota seja 4 e para as duas restantes, 3. Mostre o código do 
+aluno, suas três notas, a média calculada e uma mensagem "APROVADO" se a média for maior ou igual a 5 e 
+"REPROVADO" se a média for menor que 5. Repita a operação até que o código lido seja negativo. */
+
+
+function calcularNotaFinal(codAluno, nota1, nota2, nota3) {
+    let notas = []
+    notas.push(nota1)
+    notas.push(nota2)
+    notas.push(nota3)
+    notas.sort((a,b) => a < b ? 1 : -1)
+
+    let mediaFinal = (notas[0] * 4 + notas[1] * 3 + notas[2] * 3)/10
+    console.log(`codigo Do Aluno: ${codAluno}. Notas: ${nota1}, ${nota2}, ${nota3}. ${mediaFinal < 5? 'Reprovação.': 'Aprovado.'}`) 
+}
+
+calcularNotaFinal(123, 2.8, 6, 3.5)
+calcularNotaFinal(166, 7, 7.2, 0)
+calcularNotaFinal(166, 9, 3, 2)
+
+
+/* Crie um programa que imprima 11 vezes a frase " Hello World!" utilizando uma estrutura de repetição while. */
+
+let contador = 1;
+ while (contador <= 11) {
+    console.log('Hello World!') 
+   contador++ 
+ }
+  
+
+
+ // EX 2
+ 
+ function helloWorld () {
+    let i = 0
+    while (i < 11) {
+        console.log('Hello World!');
+        i++
+    }
+ }
+
+ helloWorld()
