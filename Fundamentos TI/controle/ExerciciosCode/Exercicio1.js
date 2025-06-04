@@ -671,3 +671,83 @@ let contador = 1;
  }
 
  helloWorld()
+
+
+
+/* 26) Fazer um programa para encontrar todos os pares entre 1 e 100. */
+
+function achaPares () {
+    for (let i = 1; i <=100; i++)
+        if (i%2==0)  {
+            console.log(i)
+        }
+}
+
+achaPares()
+
+
+
+/* 7Construa uma função que receba como parâmetros as alturas e as taxas de crescimento anuais de duas 
+crianças e calcule se existe uma criança menor, caso exista se a criança menor ultrapassará a maior e em 
+quantos anos isso acontecerá. Utilize centímetros para as unidades de medida. */
+
+function calcularCrescimento (taxa1, altura1, taxa2, altura2) {
+    if (altura1 == altura2) {
+        if (taxa1 > taxa2) {
+            return 'A criança 1 ultrapassara a criança 2 em 1 ano.'
+        }else if (taxa1 < taxa2) {
+            return 'A criança 2 ultrapassara a criança 1 em 1 ano.'
+        }else {
+            return 'As crianças tem igual altura e crescimento'
+        }
+    } else {
+        if (altura1 > altura2) {
+            if(taxa1 >= taxa2) {
+                return 'A criança menor nao ultrapassara a maior'
+            } else {
+                return `A criança menor ultrapassara a criança maior em ${calcularTempo(altura2, taxa2, altura1, taxa1)} anos`
+            }
+        } else {
+            if(taxa2 >= taxa1) {
+                return ' A criança menor não ultrapassara a maior'
+            } else {
+                return `A criança menor ultrapassara a maior em ${calcularTempo(altura1, taxa1, altura2, taxa2)} anos`
+            }
+        }
+    }
+}
+
+function calcularTempo(alturaMenor, taxaAlturaMenor, alturaMaior, taxaAlturaMaior){ 
+    let qtdAnos = 0
+    while (alturaMenor <alturaMaior) {
+        alturaMenor += taxaAlturaMenor
+        alturaMaior += taxaAlturaMaior
+        qtdAnos++
+    }
+   
+  return qtdAnos
+    
+}
+
+console.log(calcularCrescimento(150, 2, 146, 5))
+console.log(calcularCrescimento(1.50, 2, 1.70, 3))
+console.log(calcularCrescimento(1.63, 2, 1.72, 3))
+
+
+
+/*28) Ler um vetor de números inteiros e imprimir quantos são pares e quantos são ímpares.*/
+
+function calcularPares (vetorNumeros) {
+    let qtdPares = 0
+    let qtdImpares = 0
+    for (let i = 0; i < vetorNumeros.length; i++){
+        if (vetorNumeros[i] % 2 == 0) {
+            qtdPares++
+        }else {
+            qtdImpares++
+        }
+    }
+    console.log(`${qtdPares} numeros pares e ${qtdImpares} numeros impares.`)
+}
+vetor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+calcularPares(vetor)
