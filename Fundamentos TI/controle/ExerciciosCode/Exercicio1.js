@@ -771,3 +771,73 @@ return `${qtdNumerosNoIntervalo} Numeros dentro do intervalo`
 vetor = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21]
 
 console.log(observarIntervalo(vetor))
+
+/* 30) Escreva um algoritmo que percorre um vetor de inteiros e defina o maior e menor valor dentro do vetor. */
+
+function maiorMenor (vetor) {
+    let maior 
+    let menor
+    
+    for (let i = 0; i < vetor.length; i++) {
+        if (maior === undefined && menor === undefined) {
+            maior = vetor[i]    
+            menor = vetor[i]
+        } else {
+          if  (vetor[i] > maior) {
+            maior = vetor [i]
+          }
+        }
+    }
+    return [maior, menor]
+}
+vetor = [10, 5, 7, 0, 1, 7, 11, 20, 40, 9]
+
+console.log(maiorMenor(vetor))
+
+/*  31) Escrever um algoritmo que percorre um vetor de inteiros, conta quantos números negativos há nesse vetor 
+e imprime a quantidade no console.  */
+
+function numeroNegativos (vetor) {
+    let qntdNegativos = 0
+    for(i = 0; i < vetor.length; i++) {
+        if(vetor[i] < 0) {
+            qntdNegativos++
+    }
+}
+return qntdNegativos
+}
+vetor = [10, 5, 6, 8, 100, 50, -9, -8, -6, -4]
+console.log(numeroNegativos(vetor))
+
+/* 32) Construir um algoritmo que calcule a média aritmética dos valores de um vetor de inteiros.*/
+
+function valoresVetor (vetor) {
+    let soma = 0
+    for (let i = 0; i<vetor.length; i++) {
+        soma += vetor[i]
+    
+    }
+    return soma/vetor.length
+}
+vetor = [1, 2 ,3, 4, 5, 6, 7, 8, 9]
+console.log(valoresVetor(vetor))
+
+/* 33) Crie três vetores, chamados vetorInteiro, vetorString e vetorDouble. Cada um destes vetores deverá conter 
+quatro valores, sendo o primeiro com valores inteiros, o segundo com strings e o terceiro com valores decimais. 
+Declarados os vetores, utilize a função de união concat() de duas maneiras diferentes para unir os vetores, e 
+mostre o resultado no console. Todos os elementos do vetor resultado deverão aparecer no console. */
+
+let vetorInteiro =[1, 2, 3, 4, 5]
+let vetorStrings =['Thiago', 'Maria', 'Gabi', 'Vinicius']
+let vetorDec =[1.1, 2.2, 3.3, 4.4]
+
+function concatenar (...args) {
+    resultado = []
+    for(let i = 0; i<arguments.length; i ++) {
+        resultado = resultado.concat(arguments[i])
+    }
+    return resultado;
+}
+
+console.log(concatenar(vetorInteiro, vetorDec))
+console.log(concatenar(vetorDec, vetorStrings))
